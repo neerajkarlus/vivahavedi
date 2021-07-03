@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-from pathlib import Path
-
 import environ 
+
+from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
 env = environ.Env(
     # set casting, default value
      DEBUG=(bool, False)
