@@ -13,6 +13,7 @@ import os
 import environ 
 import django
 django.setup()
+os.environ
 
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
@@ -45,9 +46,9 @@ DATABASES = {
 
 CACHES = {
 # read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
-'default':env.cache(),
+'default': env.cache(),
 # read os.environ['REDIS_URL']
-'redis':env.cache('REDIS_URL')
+'redis': env.cache('REDIS_URL')
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
