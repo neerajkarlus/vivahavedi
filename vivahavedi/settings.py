@@ -35,7 +35,7 @@ SECRET_KEY = env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']                                                                                                                                               
 
 
 # Application definition
@@ -88,10 +88,15 @@ WSGI_APPLICATION = 'vivahavedi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
