@@ -20,7 +20,7 @@ env = environ.Env(
 
 environ.Env.read_env()
 #environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-DEBUG = env('DEBUG')
+DEBUG=env('DEBUG')
 
 
 
@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc*fi(%9_4*vz&1-r')
+SECRET_KEY=env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc*fi(%9_4*vz&1-r')
 
 # Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
 DATABASES = {
