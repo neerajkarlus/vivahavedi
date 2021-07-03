@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import environ 
-import django
-django.setup()
-os.environ
 
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
@@ -24,7 +21,7 @@ env = environ.Env(
 
 #environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DEBUG=env('DEBUG')
-
+ALLOWED_HOSTS=["*"]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,14 +33,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY=env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc*fi(%9_4*vz&1-r')
 
-
-
-CACHES = {
-# read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
-'default': env.cache(),
-# read os.environ['REDIS_URL']
-'redis': env.cache('REDIS_URL')
+# Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
+DATABASES = {
+'default': env.db(default="postgres:////vivahavedi"),
 }
+
+# CACHES = {
+# # read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
+# 'default': env.cache(),
+# # read os.environ['REDIS_URL']
+# 'redis': env.cache('REDIS_URL')
+# }
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -61,9 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
-    'blog',
-    
+    'app',    
 ]
 
 MIDDLEWARE = [
@@ -100,18 +98,6 @@ WSGI_APPLICATION = 'vivahavedi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DatabaseName',
-        'USER': 'DatabaseUserName',
-        'PASSWORD': 'DatabaseUserpassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
