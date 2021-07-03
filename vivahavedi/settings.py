@@ -36,13 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY=env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc*fi(%9_4*vz&1-r')
 
-# Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
-DATABASES = {
-# read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
-'default': env.db(),
-# read os.environ['SQLITE_URL']
-'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db')
-}
+
 
 CACHES = {
 # read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
@@ -109,15 +103,14 @@ WSGI_APPLICATION = 'vivahavedi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'DatabaseName',
+        'USER': 'DatabaseUserName',
+        'PASSWORD': 'DatabaseUserpassword',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
 
 
 # Password validation
