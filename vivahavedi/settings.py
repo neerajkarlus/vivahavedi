@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-import environ
 from pathlib import Path
 
+import environ 
 env = environ.Env(
     # set casting, default value
      DEBUG=(bool, False)
@@ -20,6 +20,8 @@ env = environ.Env(
 
 environ.Env.read_env()
 #environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+DEBUG = env('DEBUG')
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +33,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str('SECRET_KEY',default = 'z(lb9ixng$cu(k#uh!-1c=9o2_56x9#r*lc*fi(%9_4*vz&1-r')
+
+# Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
+DATABASES = {
+# read os.environ['DATABASE_URL'] and raises ImproperlyConfigured exception if not found
+'default': env.db(),
+# read os.environ['SQLITE_URL']
+'extra': env.db('SQLITE_URL', default='sqlite:////tmp/my-tmp-sqlite.db')
+}
+
+CACHES = {
+# read os.environ['CACHE_URL'] and raises ImproperlyConfigured exception if not found
+'default': env.cache(),
+# read os.environ['REDIS_URL']
+'redis': env.cache('REDIS_URL')
+}
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
