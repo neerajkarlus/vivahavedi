@@ -34,3 +34,7 @@ class Profile(models.Model):
     Office_use = models.CharField(max_length=200, blank=True, null=True)
     Place = models.CharField(max_length=15, blank=True, null=True)
     date = models.DateField(default=datetime.now(), blank=True)
+
+
+    def __str__(self):
+        return self.Name
