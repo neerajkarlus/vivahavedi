@@ -3,6 +3,9 @@ from . import views
 urlpatterns = [
     path("<int:id", views.index, name="index"),
     path("", views.home, name="home"),
-    path('profilelist', views.all_profile, name="profile_list")
+    path('profilelist', views.all_profile, name="profile_list"),
+    path('add_profile', views.add_profile, name="add-profile"),
+    path('list_profile', views.list_profile, name="list-profile"),
+    path('show_profile/<profile_id>', views.show_profile, name='show-profile'),
 ]
  

@@ -1,0 +1,46 @@
+<!-- connect base.html codes -->
+{% extends 'app/base.html' %}  
+{% block content %}
+   
+        
+
+    
+        <div class="card">
+            <div class="card-header">
+                {{ profile }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ profile }}</h5>
+              <p class="card-text">
+                <ul>
+
+                    {{ profile.Address }}<br/>
+                    {{ profile.Age }}<br/>
+                    {{ profile.Sex }}<br/>
+                    {{ profile.Education }}<br/>
+                    {{ profile.Occupation }}<br/>
+                    {{ profile.Hight }}<br/>
+                    {{ profile.Weight }}<br/>
+                    {{ profile.Mobile_no }}<br/>
+                    {{ profile.Diocese }}<br/>
+                    {{ profile.Parish }}<br/>
+                    {{ profile.Community }}<br/>
+                    {{ profile.Town }}<br/>
+                    {{ profile.Family_Status }}<br/>
+                    {{ profile.Name_of_the_Parent }}<br/>
+                    {{ profile.Parent_mobile }}<br/>
+                    {{ profile.Partners_Requirements }}<br/>
+                    {{ profile.Contact_address }}<br/>
+                    {{ profile.Office_use }}<br/>
+                    {{ profile.Place }}<br/>
+                    {{ profile.date }}<br/>
+                    
+                  
+                </ul>
+              </p>
+            </div>
+          </div>
+
+
+    </center>
+{% endblock %}

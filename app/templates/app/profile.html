@@ -1,0 +1,30 @@
+<!-- connect base.html codes -->
+{% extends 'app/base.html' %}  
+{% block content %}
+    <center>
+    <h1>Profiles..</h1>
+    <br/>
+    <table class="table table-striped table-hover table-bordered"> 
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+            </tr>
+        </thead>
+    {% for profile in profile_list %}
+    <tr>
+        <td>
+            {{ profile.id }}<br/>
+        </td>
+        <td>
+            <a href="{% url 'show-profile' profile.id %}">{{ profile }}</a> <br/>
+        </td>
+        <td>
+            {{ profile.Age }}<br/>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+    </center>
+{% endblock %}
