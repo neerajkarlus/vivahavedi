@@ -10,6 +10,7 @@
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
+              <th scope="col">Actions</th>
             </tr>
         </thead>
     {% for profile in profile_list %}
@@ -23,6 +24,15 @@
         <td>
             {{ profile.Age }}<br/>
         </td>
+        <td>
+            <div class="buttons btn-group col-md-5">
+            <a href="{% url 'update-profile' profile.id %}" class="btn btn-outline-secondary btn-sm">Update</a> <br/>
+            <a href="{% url 'delete-profile' profile.id %}" class="btn btn-outline-danger btn-sm">Delete</a> <br/>
+            </div>
+
+        </td>
+        
+
     </tr>
     {% endfor %}
     </table>

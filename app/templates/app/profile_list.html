@@ -3,44 +3,43 @@
 {% block content %}
     <h1>list profile data</h1>
         
-    {% for profile in profile_list %}
 
+    <div class="container">
+      <div class="row row-cols-3">
+        {% for profile in profile_list %}
 
-    <div class="card">
-        <div class="card-header">
-            {{ profile }}
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <a href="{% url 'show-profile' profile.id %}">{{ profile }}</a> <br/>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Details</h5>
+              <p class="card-text">
+                <ul>
+                    <li>Address: {{ profile.Address }}</li>
+                    <li>Age: {{ profile.Age }}</li>
+                    <li>Sex: {{ profile.Sex }}</li>
+                    <li>Education: {{ profile.Education }}</li>    
+                    <li>Occupation: {{ profile.Occupation }}</li>
+                    <li>Diocese: {{ profile.Diocese }}</li>
+                    
+                    <li>Town: {{ profile.Town }}</li>
+                    
+                </ul>
+              </p>
+            </div>
+          </div>
+    
         </div>
-        <div class="card-body">
-          <h5 class="card-title">Details</h5>
-          <p class="card-text">
-            <ul>
-                <li>Address: {{ profile.Address }}</li>
-                <li>Age: {{ profile.Age }}</li>
-                <li>Sex: {{ profile.Sex }}</li>
-                <li>{Education: { profile.Education }}</li>    
-                <li>Occupation: {{ profile.Occupation }}</li>
-                <li>Height: {{ profile.Hight }}</li>
-                <li>Weight: {{ profile.Weight }}</li>
-                <li>Mobile_no: {{ profile.Mobile_no }}</li>
-                <li>Diocese: {{ profile.Diocese }}</li>
-                <li>Parish: {{ profile.Parish }}</li>
-                <li>Community: {{ profile.Community }}</li>
-                <li>Town: {{ profile.Town }}</li>
-                <li>Family_Status: {{ profile.Family_Status }}</li>
-                <li>Name_of_the_Parent: {{ profile.Name_of_the_Parent }}</li>
-                <li>Parent_mobile: {{ profile.Parent_mobile }}</li>
-                <li>Partners_Requirements: {{ profile.Partners_Requirements }}</li>
-                <li>Contact_address: {{ profile.Contact_address }}</li>
-                <li>Office_use: {{ profile.Office_use }}</li>
-                <li>Place: {{ profile.Place }}</li>
-                <li>Date: {{ profile.date }}</li>
-            </ul>
-          </p>
-        </div>
+        {% endfor %}
+
       </div>
+    </div>
 
+
+    
       <br/> 
 
-    {% endfor %}
                     
 {% endblock %}

@@ -1,17 +1,32 @@
 from django.forms.forms import Form
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Profile
 from .forms import ProfileForm
 # Create your views here.
 
+def delete_profile(request, profile_id):
+    profile = Profile.objects.get(pk=profile_id)
+    profile.delete()
+    return redirect('list-profile')
+
+def update_profile(request, profile_id):
+    profile = Profile.objects.get(pk=profile_id)
+    form = ProfileForm(request.POST or None, instance=profile)
+    if form.is_valid():
+        form.save()
+        return redirect('list-profile')
+    return render(request, 'app/update_profile.html', {'profile': profile, 'form': form})
+ 
+
+
 def show_profile(request, profile_id):
     profile = Profile.objects.get(pk=profile_id)
     return render(request, 'app/show_profile.html', {'profile': profile})
 
 def list_profile(request):
-    profile_list = Profile.objects.all()
+    profile_list = Profile.objects.all().order_by('id')
     return render(request, 'app/profile.html', {'profile_list': profile_list})
  
 
