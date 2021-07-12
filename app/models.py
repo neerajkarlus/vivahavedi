@@ -21,6 +21,7 @@ class Profile(models.Model):
     Occupation = models.CharField(max_length=100, blank=True, null=True)
     Hight = models.CharField(max_length=5, blank=True, null=True)
     Weight = models.CharField(max_length=5, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
     Mobile_no = models.CharField(max_length=15, blank=True, null=True)
     Diocese = models.CharField(max_length=200, blank=True, null=True)
     Parish = models.CharField(max_length=200, blank=True, null=True)
