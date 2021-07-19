@@ -16,7 +16,7 @@
     {% for profile in profile_list %}
     <tr>
         <td>
-            {{ profile.id }}<br/>
+            {{ forloop.counter }}<br/>
         </td>
         <td>
             <a href="{% url 'show-profile' profile.id %}">{{ profile }}</a> <br/>
