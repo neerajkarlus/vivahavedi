@@ -19,7 +19,7 @@ class Profile(models.Model):
     Sex = models.CharField(max_length=10, blank=True, null=True)
     Education = models.CharField(max_length=100, blank=True, null=True)
     Occupation = models.CharField(max_length=100, blank=True, null=True)
-    Hight = models.CharField(max_length=5, blank=True, null=True)
+    Height = models.CharField(max_length=5, blank=True, null=True)
     Weight = models.CharField(max_length=5, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
     Mobile_no = models.CharField(max_length=15, blank=True, null=True)

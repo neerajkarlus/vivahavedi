@@ -10,4 +10,4 @@ class ProfileForm(ModelForm):
         #to call all fields
         #fields = "__all__"
         #to call needed fields only
-        fields = ('Name', 'Address', 'Age', 'Sex', 'Education', 'Occupation', 'Hight', 'Weight', 'email', 'Mobile_no', 'Diocese', 'Parish', 'Community', 'Town', 'Family_Status', 'Name_of_the_Parent', 'Parent_mobile', 'Partners_Requirements', 'Contact_address', 'Office_use', 'Place', 'date')
+        fields = ('Name', 'Address', 'Age', 'Sex', 'Education', 'Occupation', 'Height', 'Weight', 'email', 'Mobile_no', 'Diocese', 'Parish', 'Community', 'Town', 'Family_Status', 'Name_of_the_Parent', 'Parent_mobile', 'Partners_Requirements', 'Contact_address', 'Office_use', 'Place', 'date')
